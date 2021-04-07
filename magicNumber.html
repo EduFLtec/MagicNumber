@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width" />
-  <title>Number Guess</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+  <title>Magic Number</title>
 </head>
-<body>
-  <h1>Number Guess</h1>
 
-  <script src="script.js"></script>
+<body class="bg-primary">
+  <div class="game container-md mt-4" id="game-card">
+    <h1 class="text-center text-white">Magic Number</h1>
+    <!-- Append class to change border color on miss, win or loss -->
+    <div class="card-body border-4 rounded-3 shadow bg-dark text-white border">
+        <div class="bg-info bg-gradient rounded-3 fw-bold text-center fs-5 border mb-2 p-2">
+          <label for="guess-input" class="form-label">Enter a guess <span class="min-num"></span> and <span class="max-num"></span></label>
+          <input class="rounded-3" type="number" id="guess-input" placeholder="Enter your guess...">
+          <input class="rounded-3 btn-primary" type="button" value="Submit" id="guess-btn">
+        </div>
+        <p class="message text-center fw-bold fs-5"></p>
+        <ul class="list-group list-group-flush rounded-3">
+          <li class="list-group-item" id="higer-hint">It's higher than: </li>
+          <li class="list-group-item" id="lower-hint">It's less than: </li>
+          <li class="list-group-item" id="guess-counter">Guess Attempt: </li>
+        </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+  </script>
+  <script src="app.js"></script>
+  <!-- <script src="app.js"></script> -->
 </body>
+
 </html>
