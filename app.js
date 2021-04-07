@@ -6,24 +6,24 @@ let isNumberFound = false;
 let guesses = 0;
 
 // UI Variables
-const gameWrapper = document.querySelector('#game-container');
-const minNum = document.querySelector('.min-num');
-const maxNum = document.querySelector('.max-num');
-const guessInput = document.querySelector("#guess-input");
-const guessBtn = document.querySelector("#guess-btn");
-const message = document.querySelector('.message');
-const higherHint = document.querySelector("#higer-hint");
-const lowerHint = document.querySelector("#lower-hint");
-const guessesCounter = document.querySelector("#guess-counter");
-const gameCard = document.querySelector('#game-card');
+const minNum = document.querySelector('.min-num'),
+ maxNum = document.querySelector('.max-num'),
+ guessInput = document.querySelector("#guess-input"),
+ guessBtn = document.querySelector("#guess-btn"),
+ message = document.querySelector('.message'),
+ higherHint = document.querySelector("#higer-hint"),
+ lowerHint = document.querySelector("#lower-hint"),
+ guessesCounter = document.querySelector("#guess-counter"),
+ gameCard = document.querySelector('#game-card');
 
-// Assign UI min and max 
+
+ // Assign UI min and max 
 minNum.textContent = min;
 maxNum.textContent = max;
 
 // Play again option after a win, needs fix
-gameWrapper.addEventListener('mousedown', function(e){
-	if(e.target.className === 'play-again'){
+gameCard.addEventListener('mousedown', function(e){
+	if(e.target.value === 'Play Again'){
 	  window.location.reload();
 	}
   });
@@ -42,16 +42,19 @@ guessBtn.addEventListener('click', function () {
 	if (isNumberFound === false) {
 		if (isNaN(guess) || guess < min || guess > max || guess === "") {
 			setMessage(`Please enter a valid number between ${min} and ${max}`, 'warning');
+		// Win state and replay option
 		} else if (guess === winningNumber) {
 			isNumberFound = true;
 			let stats = `You took ${guesses} guesses to find the magic number!`;
 			setMessage(`${winningNumber} is the magic number! You win! ${stats}`, 'success');
-			gameCard.classList.toggle('border-success');
 			guessBtn.value = 'Play Again';
-			guessBtn.className += ' play-again';
+			gameCard.classList.remove('border-danger');
+			gameCard.classList.add('border-success');
+		// Hint information
 		} else {
 			guesses = guesses + 1;
 			setGuessCounter();
+				gameCard.classList.add('border-danger');
 			    if (winningNumber > guess) {
 					setHighHint(`It's higher than: ${guess}`);
 				} else {
