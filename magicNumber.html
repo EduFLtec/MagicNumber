@@ -10,11 +10,11 @@
   <title>Magic Number</title>
 </head>
 
-<body class="bg-primary">
-  <div class="game container-md mt-4" id="game-card">
+<body class="bg-secondary">
+  <div class="container-md mt-4" id="game-container">
     <h1 class="text-center text-white">Magic Number</h1>
     <!-- Append class to change border color on miss, win or loss -->
-    <div class="card-body border-4 rounded-3 shadow bg-dark text-white border">
+    <div class="card-body border-4 rounded-3 shadow bg-dark text-white border" id="game-card">
         <div class="bg-info bg-gradient rounded-3 fw-bold text-center fs-5 border mb-2 p-2">
           <label for="guess-input" class="form-label">Enter a guess <span class="min-num"></span> and <span class="max-num"></span></label>
           <input class="rounded-3" type="number" id="guess-input" placeholder="Enter your guess...">
@@ -22,7 +22,7 @@
         </div>
         <p class="message text-center fw-bold fs-5"></p>
         <ul class="list-group list-group-flush rounded-3">
-          <li class="list-group-item" id="higer-hint">It's higher than: </li>
+          <li class="list-group-item" id="higer-hint">It's higher than: </li> 
           <li class="list-group-item" id="lower-hint">It's less than: </li>
           <li class="list-group-item" id="guess-counter">Guess Attempt: </li>
         </ul>
